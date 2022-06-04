@@ -1,1 +1,1 @@
-#worksho_mongodb
+#workshop_mongodb
