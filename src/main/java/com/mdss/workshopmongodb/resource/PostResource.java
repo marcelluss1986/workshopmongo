@@ -1,6 +1,5 @@
 package com.mdss.workshopmongodb.resource;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class PostResource {
 	public ResponseEntity<List<Post>> fullSearch(
 			@RequestParam(value = "text", defaultValue = "") String text,
 			@RequestParam(value = "minDate", defaultValue = "") String minDate,
-			@RequestParam(value = "maxDate", defaultValue = "") String maxDate) throws ParseException{
+			@RequestParam(value = "maxDate", defaultValue = "") String maxDate){
 		text = URL.decodeParam(text);
 		Date min = URL.convertDate(minDate, new Date(0L));
 		Date max = URL.convertDate(maxDate, new Date());

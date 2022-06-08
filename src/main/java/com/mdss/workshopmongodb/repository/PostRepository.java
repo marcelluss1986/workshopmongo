@@ -12,12 +12,12 @@ import com.mdss.workshopmongodb.domain.Post;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String>{
 	
-	@Query("{'title': {$regex: ?0, $optiions: 'i' }}")
+	@Query("{'title': {$regex: ?0, $options: 'i' }}")
 	public List<Post> searchTitle(String text);
 		
 	public List<Post>findByTitleContainingIgnoreCase(String text);
 	
-	@Query("{$and:[{date: {$gte: ?1} },{date: {$lte: ?2} }, {$or: [ {'title': {$regex: ?0, $optiions: 'i' }}, {'body': {$regex: ?0, $optiions: 'i' }}, {'comments.text': {$regex: ?0, $optiions: 'i' }} ]}]}")
+	@Query("{$and:[{date: {$gte: ?1} },{date: {$lte: ?2} }, {$or: [ {'title': {$regex: ?0, $options: 'i' }}, {'body': {$regex: ?0, $options: 'i' }}, {'comments.text': {$regex: ?0, $options: 'i' }} ]}]}")
 	public List<Post> fullSearch(String text, Date minDate, Date maxDate);
 	
 }
